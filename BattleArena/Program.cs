@@ -12,22 +12,11 @@ namespace BattleArena
     {
         static void Main(string[] args)
         {
-            Warrior Raymond = new Warrior();
-            Raymond.Name = "Raymond";
-            Raymond.Health = 100;
-            Raymond.AttackPower = 30;
+            Warrior Raymond = new Warrior("Raymond", 100, 30);
+            Warrior Kirk = new Warrior("Kirk", 200, 15);
+            Warrior Cods = new Warrior("Cods", 150, 30);
 
 
-            Warrior Kirk = new Warrior();
-            Kirk.Name = "Kirk";
-            Kirk.Health = 200;
-            Kirk.AttackPower = 15;
-
-
-            Warrior Cods = new Warrior();
-            Cods.Name = "Cods";
-            Cods.Health = 150;
-            Cods.AttackPower = 25;
 
 
             Console.WriteLine($"{Raymond.Name} has " +
