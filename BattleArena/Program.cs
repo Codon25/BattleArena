@@ -1,37 +1,38 @@
-﻿    using BattleArena.Warriors;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+﻿using BattleArena.Warriors;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    namespace BattleArena
+namespace BattleArena
+{
+
+    internal class Program
     {
-
-        internal class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            var Raymond = new Raymond(100, 30, 3);
+            var Kirk = new Cods(200, 15, 5);
+            var Cods = new Kirk(150, 30, 10);
+            Cods.DisplayStatus();
+            Kirk.DisplayStatus();
+            Raymond.DisplayStatus();
+
+            while (Raymond.IsAlive && Kirk.IsAlive && Cods.IsAlive)
             {
-                int round = 1;
-                var Raymond = new Marksman("Raymond", 100, 30);
-                var Kirk = new Fighter("Kirk", 200, 15);
-                var Cods = new Tank("Cods", 150, 30);
-
-                Raymond.DisplayStats();
-                Kirk.DisplayStats();
-                Cods.DisplayStats();
-             
-                while(Raymond.IsAlive && Kirk.IsAlive && Cods.IsAlive)
-                {
-                
-                    Raymond.Attack(Kirk);
-                    Console.WriteLine("----------------------------------------------");
-                    Cods.Attack(Raymond);
-                    Console.WriteLine("----------------------------------------------");
-                    round++;
-                }
-
-                Console.ReadKey();
+                Console.WriteLine("\n\n----------------------------------------------");
+                Raymond.Attack(Kirk);
+                Kirk.DisplayStatus();
+                Console.WriteLine("----------------------------------------------");
+                Cods.Attack(Raymond);
+                Raymond.DisplayStatus();
+                Console.WriteLine("----------------------------------------------");
+                Kirk.Attack(Cods);
+                Cods.DisplayStatus();
             }
-        } 
+
+            Console.ReadKey();
+        }
     }
+}
